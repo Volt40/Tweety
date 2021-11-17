@@ -13,6 +13,11 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class TweetyUIController extends AnchorPane {
 
@@ -22,6 +27,9 @@ public class TweetyUIController extends AnchorPane {
     private String pathToMedia;
 
     private double[] offset;
+
+    // Used for sending tweets later.
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     @FXML
     private TextArea tweetQueue;
@@ -60,9 +68,22 @@ public class TweetyUIController extends AnchorPane {
 
     @FXML
     void onSubmit(ActionEvent event) {
-        String tweet = tweetTextArea.getText();
+        String tweetMessage = tweetTextArea.getText();
+        Tweet tweet = null;
+        if (postMedia)
+            tweet = new Tweet(tweetMessage, pathToMedia);
+        else
+            tweet = new Tweet(tweetMessage);
         if (schedule) {
-            // TODO: figure this out
+            if (hoursPrompt.getText() == "")
+                hoursPrompt.setText("0");
+            try {
+                int timeInMinutes = (Integer.parseInt(hoursPrompt.getText()) * 60) + Integer.parseInt(minsPrompt.getText());
+                new TweetScheduler(tweet, timeInMinutes).schedule();
+                addToQueue("Tweet scheduled to be sent in " + timeInMinutes + " minute(s): \"" + tweet.getMessage() + "\"");
+            } catch (Exception e) {
+                addToQueue("Something went wrong.");
+            }
         } else
             pushTweet(tweet);
     }
@@ -71,13 +92,13 @@ public class TweetyUIController extends AnchorPane {
      * Sends the tweet to twitter w/ the python api.
      * @param tweet Tweet to be sent.
      */
-    private void pushTweet(String tweet) {
-        if (postMedia) {
+    public void pushTweet(Tweet tweet) {
+        if (tweet.hasMedia()) {
             // TODO: run python scrypt to post media.
-            addToQueue("Tweet sent (with media): \"" + tweet + "\"");
+            addToQueue("Tweet sent (with media): \"" + tweet.getMessage() + "\"");
         } else {
             // TODO: run python scrypt to send tweet.
-            addToQueue("Tweet sent: \"" + tweet + "\"");
+            addToQueue("Tweet sent: \"" + tweet.getMessage() + "\"");
         }
     }
 
