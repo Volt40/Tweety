@@ -45,7 +45,7 @@
          <font>
             <Font name="Arial" size="13.0" />
          </font></Text>
-      <CheckBox layoutX="42.0" layoutY="148.0" mnemonicParsing="false" onAction="#onPostMediaCheck" text="Post Media" textFill="#bababa" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="20.0">
+      <CheckBox fx:id="mediaCheckBox" layoutX="42.0" layoutY="148.0" mnemonicParsing="false" onAction="#onPostMediaCheck" text="Post Media" textFill="#bababa" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="20.0">
          <font>
             <Font name="Arial" size="13.0" />
          </font></CheckBox>
@@ -63,7 +63,7 @@
             <Font name="Arial" size="10.0" />
          </font>
       </Button>
-      <CheckBox layoutX="52.0" layoutY="158.0" mnemonicParsing="false" onAction="#onScheduleCheck" text="Schedule" textFill="#bababa" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="20.0">
+      <CheckBox fx:id="scheduleCheckBox" layoutX="52.0" layoutY="158.0" mnemonicParsing="false" onAction="#onScheduleCheck" text="Schedule" textFill="#bababa" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="20.0">
          <font>
             <Font name="Arial" size="13.0" />
          </font></CheckBox>

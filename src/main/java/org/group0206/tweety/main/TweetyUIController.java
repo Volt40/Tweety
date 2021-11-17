@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -46,6 +47,12 @@ public class TweetyUIController extends AnchorPane {
     @FXML
     private TextField minsPrompt;
 
+    @FXML
+    private CheckBox mediaCheckBox;
+
+    @FXML
+    private CheckBox scheduleCheckBox;
+
     public TweetyUIController() {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Tweety.fxml"));
         loader.setRoot(this);
@@ -86,6 +93,7 @@ public class TweetyUIController extends AnchorPane {
             }
         } else
             pushTweet(tweet);
+        reset();
     }
 
     /**
@@ -161,6 +169,20 @@ public class TweetyUIController extends AnchorPane {
     @FXML
     void onClose(MouseEvent event) {
         Platform.exit();
+    }
+
+    private void reset() {
+        tweetTextArea.clear();
+        mediaCheckBox.selectedProperty().set(false);
+        scheduleCheckBox.selectedProperty().set(false);
+        hoursPrompt.clear();
+        hoursPrompt.setDisable(true);
+        minsPrompt.clear();
+        minsPrompt.setDisable(true);
+        browseButton.setText("Browse");
+        browseButton.setDisable(true);
+        postMedia = false;
+        schedule = false;
     }
 
 }
