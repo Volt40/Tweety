@@ -1,0 +1,41 @@
+.ttext-area .content {
+ -fx-background-color: #2E3132 ;
+ -fx-border-color:  linear-gradient(to right bottom, #2f9dd4, #00e1ff);
+ -fx-background-radius: 0;
+ -fx-border-radius: 10;
+}
+
+.ttext-area-grey .content {
+ -fx-background-color: #2E3132;
+ -fx-border-color: grey;
+ -fx-background-radius: 0;
+ -fx-border-radius: 10;
+ -fx-text-fill: white;
+}
+
+.text-field {
+ -fx-background-color: #2E3132;
+ -fx-border-color: grey;
+ -fx-background-radius: 0;
+ -fx-border-radius: 5 ;
+ -fx-text-fill: white;
+}
+
+.check-box .box {
+ -fx-background-color: #2E3132;
+}
+
+.button {
+ -fx-background-color: #2E3132;
+ -fx-background-radius: 6;
+ -fx-border-radius: 5;
+ -fx-border-color: linear-gradient(to right bottom, #2f9dd4, #00e1ff);
+ -fx-text-fill: white;
+}
+
+.button:hover {
+ -fx-background-color: #666666;
+}
+.button:pressed {
+ -fx-background-color: #7d7d7d;
+}
