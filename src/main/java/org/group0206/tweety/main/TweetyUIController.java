@@ -100,9 +100,15 @@ public class TweetyUIController extends AnchorPane {
     public void pushTweet(Tweet tweet) {
         if (tweet.hasMedia()) {
             // TODO: run python scrypt to post media.
+
             addToQueue("Tweet sent (with media): \"" + tweet.getMessage() + "\"");
         } else {
             // TODO: run python scrypt to send tweet.
+            try {
+                Runtime.getRuntime().exec("python send_tweet.py \"" + tweet.getMessage() + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             addToQueue("Tweet sent: \"" + tweet.getMessage() + "\"");
         }
     }
