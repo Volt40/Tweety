@@ -18,4 +18,10 @@ if len(sys.argv) == 2:
     api.update_status(sys.argv[1])
 else:
     # text & media tweet
-    api.update_status_with_media(sys.argv[1], sys.argv[2])
+    message = ''
+    for i in range(1, len(sys.argv)):
+        message += sys.argv[i]
+    api.update_with_media(sys.argv[1], message)
+
+
+

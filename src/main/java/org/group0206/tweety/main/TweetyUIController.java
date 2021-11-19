@@ -98,16 +98,22 @@ public class TweetyUIController extends AnchorPane {
      * @param tweet Tweet to be sent.
      */
     public void pushTweet(Tweet tweet) {
+        String pathToScript = TweetyUIController.class.getClassLoader().getResource("scripts/send_tweet.py").getPath();
         if (tweet.hasMedia()) {
             // TODO: run python scrypt to post media.
-
+            try {
+                Runtime.getRuntime().exec("python " + pathToScript + " " + tweet.getPathToMedia() + " " + tweet.getMessage());
+            } catch (IOException e) {
+                addToQueue("Something went wrong.");
+            }
             addToQueue("Tweet sent (with media): \"" + tweet.getMessage() + "\"");
         } else {
             // TODO: run python scrypt to send tweet.
             try {
-                Runtime.getRuntime().exec("python send_tweet.py \"" + tweet.getMessage() + "\n");
+                Runtime.getRuntime().exec("python " + pathToScript + " \"" + tweet.getMessage() + "\"");
+                System.out.println("python " + pathToScript + " \"" + tweet.getMessage() + "\"");
             } catch (IOException e) {
-                e.printStackTrace();
+                addToQueue("Something went wrong.");
             }
             addToQueue("Tweet sent: \"" + tweet.getMessage() + "\"");
         }
