@@ -39,3 +39,17 @@
 .button:pressed {
  -fx-background-color: #7d7d7d;
 }
+
+.close-button {
+  -fx-background-color: linear-gradient(to right bottom, #2f9dd4, #00e1ff);
+  -fx-background-radius: 0 0 0 10;
+}
+
+.close-button:hover {
+ -fx-background-color: linear-gradient(to right bottom, #00e1ff, #2f9dd4);
+}
+
+.close-button:pressed {
+ -fx-background-color: linear-gradient(to right bottom, #da4f4c, #c22b28);
+
+}

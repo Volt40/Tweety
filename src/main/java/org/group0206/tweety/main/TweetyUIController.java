@@ -71,6 +71,11 @@ public class TweetyUIController extends AnchorPane {
     }
 
     @FXML
+    void onSettings(ActionEvent event) {
+        // TODO
+    }
+
+    @FXML
     void onSubmit(ActionEvent event) {
         String tweetMessage = tweetTextArea.getText();
         Tweet tweet = null;
