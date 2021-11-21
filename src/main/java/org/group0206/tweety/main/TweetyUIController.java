@@ -86,6 +86,8 @@ public class TweetyUIController extends AnchorPane {
         if (schedule) {
             if (hoursPrompt.getText() == "")
                 hoursPrompt.setText("0");
+            if (minsPrompt.getText() == "")
+                minsPrompt.setText("0");
             try {
                 int timeInMinutes = (Integer.parseInt(hoursPrompt.getText()) * 60) + Integer.parseInt(minsPrompt.getText());
                 new TweetScheduler(tweet, timeInMinutes).schedule();
