@@ -33,6 +33,14 @@
  -fx-text-fill: white;
 }
 
+.grey-button {
+ -fx-background-color: #2E3132;
+ -fx-background-radius: 6;
+ -fx-border-radius: 5;
+ -fx-border-color: #A3A3A3;
+ -fx-text-fill: white;
+}
+
 .button:hover {
  -fx-background-color: #666666;
 }

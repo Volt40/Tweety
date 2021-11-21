@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,7 +53,7 @@ public class TweetyUIController extends AnchorPane {
     private CheckBox scheduleCheckBox;
 
     public TweetyUIController() {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Tweety.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("layouts/tweety.fxml"));
         loader.setRoot(this);
         loader.setController(this);
         try {
@@ -180,6 +182,16 @@ public class TweetyUIController extends AnchorPane {
     @FXML
     void onClosePressed(MouseEvent event) {
         event.consume();
+    }
+
+    @FXML
+    void onSettings(MouseEvent event) {
+        System.out.println("bruh");
+        Stage settingsStage = new Stage();
+        SettingsUIController settings = new SettingsUIController();
+        settingsStage.setScene(new Scene(settings));
+        settings.setStage(settingsStage);
+        settingsStage.show();
     }
 
     @FXML
