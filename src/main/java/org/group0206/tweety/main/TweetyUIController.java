@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.IOException;
@@ -73,8 +74,15 @@ public class TweetyUIController extends AnchorPane {
     }
 
     @FXML
-    void onSettings(ActionEvent event) {
-        // TODO
+    void onSettings(MouseEvent event) {
+        Stage settingsStage = new Stage();
+        settingsStage.initStyle(StageStyle.UNDECORATED);
+        settingsStage.setTitle("Tweety Settings");
+        settingsStage.setResizable(false);
+        SettingsUIController settings = new SettingsUIController();
+        settingsStage.setScene(new Scene(settings));
+        settings.setStage(settingsStage);
+        settingsStage.show();
     }
 
     @FXML
@@ -182,16 +190,6 @@ public class TweetyUIController extends AnchorPane {
     @FXML
     void onClosePressed(MouseEvent event) {
         event.consume();
-    }
-
-    @FXML
-    void onSettings(MouseEvent event) {
-        System.out.println("bruh");
-        Stage settingsStage = new Stage();
-        SettingsUIController settings = new SettingsUIController();
-        settingsStage.setScene(new Scene(settings));
-        settings.setStage(settingsStage);
-        settingsStage.show();
     }
 
     @FXML
