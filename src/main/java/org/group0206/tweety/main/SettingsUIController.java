@@ -36,7 +36,7 @@ public class SettingsUIController extends AnchorPane {
             e.printStackTrace();
         }
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new File(getClass().getClassLoader().getResource("keys.txt").getFile())));
+            BufferedReader br = new BufferedReader(new FileReader(getClass().getClassLoader().getResource("keys.txt").getFile()));
             consumerKey.setText(br.readLine());
             secretConsumerKey.setText(br.readLine());
             accessToken.setText(br.readLine());
