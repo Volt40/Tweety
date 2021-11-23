@@ -1,1 +1,2 @@
-*.fxml linguist-language=c
+*.fxml linguist-language=css
+*.gradle linguist-language=groovy
