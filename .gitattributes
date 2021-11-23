@@ -1,2 +1,2 @@
-*.fxml linguist-language=php
+*.fxml linguist-language=html
 *.gradle linguist-language=groovy
