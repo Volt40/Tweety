@@ -12,7 +12,7 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="434.0" style="-fx-background-color: #1F2124;" stylesheets="@../style.css" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="121.0" layoutY="59.0" onMouseDragged="#OnDragBarDragged" onMousePressed="#onDragBarPressed" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #2E3132;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="121.0" layoutY="59.0" onMouseDragged="#onDragBarDragged" onMousePressed="#onDragBarPressed" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #2E3132;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text layoutX="41.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: linear-gradient(to right bottom, #2f9dd4, #00e1ff)linear-gradient(to right bottom, #2f9dd4, #00e1ff);" text="Tweety" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="3.0">
                <font>

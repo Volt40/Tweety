@@ -177,7 +177,7 @@ public class TweetyUIController extends AnchorPane {
     }
 
     @FXML
-    void OnDragBarDragged(MouseEvent event) {
+    void onDragBarDragged(MouseEvent event) {
         TweetyApplication.primaryStage.setX(event.getScreenX() - offset[0]);
         TweetyApplication.primaryStage.setY(event.getScreenY() - offset[1]);
     }
