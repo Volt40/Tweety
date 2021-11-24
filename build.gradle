@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
+    id "com.github.johnrengelman.shadow" version "7.1.0"
 }
 
 group 'org.example'
@@ -19,6 +20,16 @@ javafx {
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.group0206.tweety.main.TweetyApplication'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
@@ -26,4 +37,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+
+shadowJar {
+    archiveBaseName.set('michaelshadow')
+    archiveClassifier.set('')
+    archiveVersion.set('')
 }

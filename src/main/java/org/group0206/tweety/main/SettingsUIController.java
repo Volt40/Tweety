@@ -39,7 +39,8 @@ public class SettingsUIController extends AnchorPane {
             e.printStackTrace();
         }
         try {
-            BufferedReader br = new BufferedReader(new FileReader(getClass().getClassLoader().getResource("keys.txt").getFile()));
+            TweetyApplication.loadKeys();
+            BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.home") + "/.tweety"));
             consumerKey.setText(br.readLine());
             secretConsumerKey.setText(br.readLine());
             accessToken.setText(br.readLine());
@@ -57,12 +58,13 @@ public class SettingsUIController extends AnchorPane {
     @FXML
     void onDone(ActionEvent event) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/keys.txt"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.home") + "/.tweety"));
             bw.write(consumerKey.getText() + "\n");
             bw.write(secretConsumerKey.getText() + "\n");
             bw.write(accessToken.getText() + "\n");
             bw.write(secretAccessToken.getText());
             bw.close();
+            TweetyApplication.loadKeys();
         } catch (IOException e) {
             // Shouldn't happen.
         }
