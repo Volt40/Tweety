@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
-    id "com.github.johnrengelman.shadow" version "7.1.0"
+    //id "com.github.johnrengelman.shadow" version "7.1.0"
 }
 
 group 'org.example'
@@ -40,8 +40,8 @@ test {
 }
 
 
-shadowJar {
-    archiveBaseName.set('michaelshadow')
-    archiveClassifier.set('')
-    archiveVersion.set('')
-}
+//shadowJar {
+//    archiveBaseName.set('michaelshadow')
+//    archiveClassifier.set('')
+//    archiveVersion.set('')
+//}
