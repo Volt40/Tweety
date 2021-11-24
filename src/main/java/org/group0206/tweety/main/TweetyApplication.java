@@ -29,7 +29,7 @@ public class TweetyApplication extends Application {
         File f = new File(System.getProperty("user.home") + "/.tweety");
         if (!f.exists()) {
             BufferedWriter bw = new BufferedWriter(new FileWriter(f));
-            bw.write("/");
+            bw.write("");
             bw.close();
         } else {
             BufferedReader br = new BufferedReader(new FileReader(f));
