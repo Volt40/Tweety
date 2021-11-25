@@ -2,6 +2,7 @@ package org.group0206.tweety.main;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -20,6 +21,7 @@ public class TweetyApplication extends Application {
         scene.getStylesheets().add("style.css");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Tweety");
+        primaryStage.getIcons().add(new Image("logo.png"));
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
